@@ -13,16 +13,25 @@
 }(window);
 
 function checkUA() {
-	var userAgent = navigator.userAgent;
-	if (/(iPhone|iPad|iPod|iOS)/i.test(userAgent)) {
+	var ua = navigator.userAgent.toLowerCase();
+	if (/(iPhone|iPad|iPod|iOS)/i.test(ua)) {
 		hideAND();
 		showIOS();
-	} else if (/(Android)/i.test(userAgent)) {
+	} else if (/(Android)/i.test(ua)) {
 		hideIOS();
 		showAND();
 	} else {
 		showAND();
 		showIOS();
+	}
+	if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		showTips();
+	}else if (ua.match(/MQQBrowser/i) == "mqqbrowser") {
+		hideTips();
+	}else if (ua.match(/QQ/i) == "qq") {
+		showTips();
+	}else{
+		hideTips();
 	}
 }
 
@@ -40,6 +49,12 @@ function hideIOS() {
 
 function showIOS() {
 	document.getElementById("app-ios").style.display = "block";
+}
+function hideTips(){
+	document.getElementById("tips").style.display = "none";
+}
+function showTips(){
+	document.getElementById("tips").style.display = "block";
 }
 window.onload = function() {
 	checkUA();

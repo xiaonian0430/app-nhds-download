@@ -97,3 +97,16 @@ body {
 	color: #000000;
 	margin-top: 0.2rem;
 }
+.tips{
+	position: fixed;
+	top:0.1rem;
+	right: 0.1rem;
+	background-color: #EB4C4C;
+	color: #FFFFFF;
+	font-size: 0.28rem;
+	width:2rem;
+	padding: 0.1rem;
+	border-radius: 0.1rem;
+	word-break: break-all;
+	display: none;
+}
